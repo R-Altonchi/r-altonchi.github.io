@@ -7,3 +7,12 @@ body {
     color: white;
     height: 100vh;
 }
+
+h1 {
+    text-align: center;
+    font-family: "Rubik Mono One", monospace;
+    font-size: clamp(2em, 2vw, 4em);
+    font-weight: 400;
+    margin: 0;
+    padding: 20px;
+}
