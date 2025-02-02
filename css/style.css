@@ -1,18 +1,191 @@
 body {
-    background-color: #222;
-    display: flex;
-    flex-direction: column;
-    margin: 0;
-    overflow: hidden;
+    font-family: "Jost", serif;
+    font-optical-sizing: auto;
+    font-weight: <weight>;
+    font-style: normal; 
+    margin: 0px;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: black;
     color: white;
-    height: 100vh;
 }
 
-h1 {
-    text-align: center;
-    font-family: "Rubik Mono One", monospace;
-    font-size: clamp(2em, 2vw, 4em);
-    font-weight: 400;
-    margin: 0;
+.container-wrapper {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px;
+    z-index: 10;
+}
+
+.container {
+    display: flex;
+    gap: 15px;
+    width: 100%;
+}
+
+.leftCol, .middleCol, .rightCol {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.leftCol {
+    flex: 3;
+}
+.middleCol {
+    flex: 6;
+}
+.rightCol {
+    flex: 4;
+}
+
+.column {
+    background-color: #111;
     padding: 20px;
+    margin-block-end: 10px;
+    border-radius: 15px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    break-inside: avoid;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #333;
+}
+
+
+.tinyItemHolder{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    border-radius: 15px;
+    background-color: black;
+    padding: 20px;
+}
+.tinyItem{
+    margin-block-start: 5px;
+    background-color: #222;
+    padding: 5px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #333;
+    border-radius: 5px;
+
+}
+.NameTopSec {
+    display: flex; 
+    align-items: center; 
+    gap: 20px;
+    margin-block-end: 15px;
+}
+.NameTopSec img {
+    width: 20%; /* Make the image fill the width of its container */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 10px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #333;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+.NameTextTop{
+    display: flex;
+    flex-direction: column; /* Stack h2 and h3 vertically */
+    gap: 10px; /* Add space between h2 and h3 */
+}
+
+.NameTopSec h2,
+.NameTopSec h3 {
+    margin: 0; /* Remove default margins */
+}
+.CTitle{
+    text-align: center; 
+}
+.githubButton{
+    margin-block-start: 5px;
+    background-color: #222;
+    padding: 5px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #333;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.inline-img {
+    width: 10%;
+    height: auto;
+    display: inline-block;
+    vertical-align: middle; /* Aligns well with text if needed */
+}
+#blob{
+    background-color: white;
+    height: 500px;
+    aspect-ratio: 1;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    translate: -50% -50%;
+    border-radius: 50%;
+    background: linear-gradient(to right, aquamarine, mediumpurple);
+    animation: rotate 20s infinite;
+    opacity: 0.5;
+    z-index: -2
+}
+#blur {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  z-index: -1;
+  backdrop-filter: blur(12vmax);
+}
+
+@keyframes rotate {
+  from {
+    rotate: 0deg;
+  }
+  
+  50% {
+    scale: 1 1.5;
+  }
+  
+  to {
+    rotate: 360deg;
+  }
+}
+
+@media (max-width: 768px) {
+    .container-wrapper {
+        flex-direction: column; /* Stack columns vertically */
+        gap: 15px; /* Add space between stacked columns */
+    }
+
+    .container {
+        flex-direction: column; /* Stack items inside each column vertically */
+    }
+
+    .leftCol, .middleCol, .rightCol {
+        flex: 1; /* Ensure all columns take up equal width */
+    }
+
+    .NameTopSec {
+        flex-direction: column; /* Stack image and text vertically */
+        align-items: flex-start; /* Align items to the start */
+    }
+
+    .NameTopSec img {
+        width: 50%; /* Adjust image size for smaller screens */
+    }
+    #blob{
+        background-color: white;
+        height: 200px;
+        aspect-ratio: 1;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        translate: -50% -50%;
+        border-radius: 50%;
+        background: linear-gradient(to right, aquamarine, mediumpurple);
+        animation: rotate 20s infinite;
+        opacity: 1;
+        z-index: -2
+    }
 }
