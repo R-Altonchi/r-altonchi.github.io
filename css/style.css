@@ -126,6 +126,9 @@ body {
     justify-content: center;
     align-items: center;
 }
+.githubButton:hover{
+    background-color: #111;
+}
 .inlineM-img {
     width: 10%;
     height: auto;
