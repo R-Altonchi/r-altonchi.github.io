@@ -1,3 +1,10 @@
+:root {
+    --blue-rgb: 0 255 65;
+    --primary-rgb: var(--blue-rgb);
+
+    --blob-color-1: rgb(var(--blue-rgb) / 65%);
+    --blob-color-2: rgba(255, 255, 0, 0.8);
+}
 body {
     font-family: "Jost", serif;
     font-optical-sizing: auto;
@@ -8,6 +15,7 @@ body {
     box-sizing: border-box;
     background-color: black;
     color: white;
+    overflow: hidden;
 }
 
 .container-wrapper {
@@ -23,24 +31,27 @@ body {
     width: 100%;
 }
 
-.leftCol, .middleCol, .rightCol {
+.leftCol, .middleCol, .rightCol, .sideSpacer {
     display: flex;
     flex-direction: column;
     gap: 10px;
 }
 
 .leftCol {
-    flex: 3;
-}
-.middleCol {
     flex: 6;
 }
+.middleCol {
+    flex: 10;
+}
 .rightCol {
-    flex: 4;
+    flex: 8;
+}
+.sideSpacer {
+    flex: 0;
 }
 
 .column {
-    background-color: #111;
+    background-color: rgba(28, 28, 28, 0.7);;
     padding: 20px;
     margin-block-end: 10px;
     border-radius: 15px;
@@ -48,10 +59,11 @@ body {
     break-inside: avoid;
     border-style: solid;
     border-width: 1px;
-    border-color: #333;
+    border-color: rgb(var(--primary-rgb) / 15%);
 }
-
-
+.column:hover{
+    border-color: rgb(var(--primary-rgb) / 80%);
+}
 .tinyItemHolder{
     display: flex;
     flex-wrap: wrap;
@@ -59,6 +71,7 @@ body {
     border-radius: 15px;
     background-color: black;
     padding: 20px;
+    border-color: rgb(var(--primary-rgb) / 15%);
 }
 .tinyItem{
     margin-block-start: 5px;
@@ -66,9 +79,12 @@ body {
     padding: 5px;
     border-style: solid;
     border-width: 1px;
-    border-color: #333;
+    border-color: rgb(var(--primary-rgb) / 15%);
     border-radius: 5px;
-
+    color: rgb(var(--primary-rgb) / 80%); 
+}
+.tinyItem:hover{
+    scale: 1.1;
 }
 .NameTopSec {
     display: flex; 
@@ -77,7 +93,7 @@ body {
     margin-block-end: 15px;
 }
 .NameTopSec img {
-    width: 20%; /* Make the image fill the width of its container */
+    width: 60px; /* Make the image fill the width of its container */
     height: auto; /* Maintain aspect ratio */
     border-radius: 10px;
     border-style: solid;
@@ -110,13 +126,105 @@ body {
     justify-content: center;
     align-items: center;
 }
-.inline-img {
+.inlineM-img {
     width: 10%;
     height: auto;
     display: inline-block;
     vertical-align: middle; /* Aligns well with text if needed */
 }
-#blob{
+.inlineL-img {
+    width: 30%;
+    height: auto;
+    display: inline-block;
+    vertical-align: middle; /* Aligns well with text if needed */
+}
+.cardHolder{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 15px;
+}
+.screen {
+    width: 100%;
+    display: flex;
+    border: 3px solid rgb(var(--primary-rgb) / 80%);
+    aspect-ratio: 10 / 16;
+    border-radius: 1rem;
+    background-color: rgb(var(--primary-rgb) / 15%);
+    overflow: hidden;
+    position: relative;
+    z-index: 15;
+  }
+.screen:hover{
+    scale: 1.05;
+} 
+  .screen:after,
+  .screen:before {
+    content: "";
+    height: 5px;
+    position: absolute;
+    z-index: 4;
+    left: 50%;
+    translate: -50% 0%;
+    background-color: rgb(var(--primary-rgb) / 80%);;
+  }
+  
+  .screen:before {
+    width: 15%;
+    top: 0rem;
+    border-bottom-left-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+  }
+  
+  .screen:after {
+    width: 25%;
+    bottom: 0rem;
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+  }
+  
+  @keyframes pan-overlay {
+    from {
+      background-position: 0% 0%;
+    }
+    
+    to {
+      background-position: 0% 100%;
+    }
+  }
+  
+  .screen-overlay {    
+    background: linear-gradient(
+      rgb(var(--primary-rgb) / 0.15),
+      rgb(var(--primary-rgb) / 0.15) 3px,
+      transparent 3px,
+      transparent 9px
+    );
+    background-size: 100% 9px;
+    height: 100%;
+    width: 100%;
+    animation: pan-overlay 22s infinite linear;
+    position: absolute;
+    z-index: 2;
+    left: 0px;
+    top: 0px;
+  }
+  
+  .screen > .screen-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    flex-grow: 1;
+    gap: 4rem;
+    position: relative;
+    z-index: 3;
+    margin: 1rem;
+    padding-bottom: 6rem;
+    border: 1px solid rgb(var(--primary-rgb) / 50%);
+    border-radius: 0.6rem;
+  }
+  #blob{
     background-color: white;
     height: 500px;
     aspect-ratio: 1;
@@ -125,9 +233,9 @@ body {
     top: 50%;
     translate: -50% -50%;
     border-radius: 50%;
-    background: linear-gradient(to right, aquamarine, mediumpurple);
+    background: linear-gradient(to right, var(--blob-color-1), var(--blob-color-2));
     animation: rotate 20s infinite;
-    opacity: 0.5;
+    opacity: 1;
     z-index: -2
 }
 #blur {
@@ -143,16 +251,57 @@ body {
     rotate: 0deg;
   }
   
-  50% {
+  25% {
     scale: 1 1.5;
   }
-  
+    75%{
+        scale 1.5 1;
+    }
   to {
     rotate: 360deg;
   }
 }
 
+@media only screen and (max-width : 1500px) { 
+    body{  
+        overflow-y: auto;
+        overflow-x: hidden;
+    }
+    .leftCol, .middleCol, .rightCol {
+        flex: 1; /* Ensure all columns take up equal width */
+    }
+    .sideSpacer{
+        flex: 0;
+    }
+
+    .NameTopSec {
+        flex-direction: column; /* Stack image and text vertically */
+        align-items: flex-start; /* Align items to the start */
+    }
+
+    .NameTopSec img {
+        width: 50%; /* Adjust image size for smaller screens */
+    }
+    #blob{
+        background-color: white;
+        height: 350px;
+        aspect-ratio: 1;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        translate: -50% -50%;
+        border-radius: 50%;
+        animation: rotate 20s infinite;
+        opacity: 1;
+        z-index: -2
+    }
+}
+
 @media (max-width: 768px) {
+    body{  
+        overflow-y: auto;
+        overflow-x: hidden;
+    }
     .container-wrapper {
         flex-direction: column; /* Stack columns vertically */
         gap: 15px; /* Add space between stacked columns */
@@ -183,7 +332,6 @@ body {
         top: 50%;
         translate: -50% -50%;
         border-radius: 50%;
-        background: linear-gradient(to right, aquamarine, mediumpurple);
         animation: rotate 20s infinite;
         opacity: 1;
         z-index: -2
