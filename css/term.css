@@ -1,6 +1,13 @@
+@font-face {
+  font-family: "Perfect DOS VGA 437";
+  src: url("fonts/PerfectDOSVGA437.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
 body {
-    font-family: "HandJet", sans-serif;
-    font-size: 40px;
+    font-family: 'Perfect DOS VGA 437', monospace; 
+    font-size: 30px;
     margin: 0px;
     padding: 0;
     box-sizing: border-box;
