@@ -1,8 +1,6 @@
 body {
-    font-family: "Jost", serif;
-    font-optical-sizing: auto;
-    font-weight: <weight>;
-    font-style: normal; 
+    font-family: "HandJet", sans-serif;
+    font-size: 40px;
     margin: 0px;
     padding: 0;
     box-sizing: border-box;
@@ -10,5 +8,3 @@ body {
     color: white;
     overflow: hidden;
 }
-
-
