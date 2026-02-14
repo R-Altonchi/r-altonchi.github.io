@@ -3,8 +3,9 @@ import * as Term from './term.js';
 let keys = [];
 let commands = {};
 
-export function initShell(commandMap) {
+export function initShell(commandMap, initcmd) {
     commands = commandMap;
+    executeCommand(initcmd);
 }
 
 export function handleKey(event) {

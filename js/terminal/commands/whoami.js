@@ -9,5 +9,12 @@ export default function whoami() {
     print(" ░███    ░███  ███░░███   ░███      ░███  ░███░░███  ");
     print(" █████   █████░░████████  █████     █████ ████ █████ ");
     print("░░░░░   ░░░░░  ░░░░░░░░  ░░░░░     ░░░░░ ░░░░ ░░░░░  ");
+    print("╭─────────────────────────────────────────────────────────────────────╮");
+    print("│                                                                          │");
+    print("│                  Hi!, my name is Rafik Altonchi.                         │");
+    print("│ I am a software engineer with lots of energy and love for the work.      │");
+    print("│                                                                          │");
+    print("╰─────────────────────────────────────────────────────────────────────╯");
+
 }
 
