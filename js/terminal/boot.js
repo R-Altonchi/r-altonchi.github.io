@@ -12,9 +12,14 @@ const commands = {
   start: start,
 };
 
-const term = document.getElementById("term");
-Term.initTerm(term);
+export function init() {
+    const term = document.getElementById("term");
+    Term.initTerm(term);
+    Shell.initShell(commands, "start");
+    document.addEventListener("keydown", Shell.handleKey);
+}
 
-Shell.initShell(commands, "start");
-document.addEventListener("keydown", Shell.handleKey);
-
+export function destroy() {
+    document.removeEventListener("keydown", Shell.handleKey);
+    Term.clearTerm();
+}

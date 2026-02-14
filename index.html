@@ -10,8 +10,14 @@
 </head>
 
 <body>
-  <div id="term" style="white-space: pre-wrap;"></div>
-  <script type="module" src="js/terminal/boot.js"></script> 
+    <nav>
+        <button data-page="terminal">Terminal</button>
+        <button data-page="about">About</button>
+        <button data-page="arcade">Arcade</button>
+    </nav>
+
+    <div id="app"></div>
+    <script type="module" src="/js/pageHandler.js"></script>
 </body>
 
 </html>
