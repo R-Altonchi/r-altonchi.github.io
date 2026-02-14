@@ -1,22 +1,9 @@
-const blob = document.getElementById("blob");
+const keys = [];
 
-function updatePointerEvent() {
-    if (window.innerWidth > 1500) {
-        document.body.onpointermove = event => {
-            const { clientX, clientY } = event;
-        
-            blob.animate({
-                left: `${clientX}px`,
-                top: `${clientY}px`
-            }, { duration: 3000, fill: "forwards" });
-        };
-    } else {
-        document.body.onpointermove = null; // Remove event listener if width <= 900px
-    }
-}
-
-// Run check initially
-updatePointerEvent();
-
-// Run check when window resizes
-window.addEventListener("resize", updatePointerEvent);
+document.addEventListener("keydown", function (event) {
+  if (event.key == "Backspace") {keys.pop();}
+  else if (event.key == "Shift") {}
+  else if (event.key == "Enter") {}
+  else {keys.push(event.key);}
+  document.getElementById("demo").innerHTML = ": " + keys.join("");
+});
