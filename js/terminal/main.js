@@ -1,16 +1,9 @@
 import * as Term from './term.js';
 import * as Shell from './shell.js';
-import help from './commands/help.js';
-import clear from './commands/clear.js';
-import whoami from './commands/whoami.js';
-import start from './commands/start.js';
+import * as commandModules from "./commands/index.js";
 
-const commands = { 
-  help: () => help(commands),
-  clear: clear,
-  whoami: whoami,
-  start: start,
-};
+const commands = { ...commandModules };
+commands.help = () => commandModules.help(commands);
 
 export function init() {
     const term = document.getElementById("term");

@@ -1,17 +1,18 @@
 let currentPage = null;
-async function loadPage(pageName) {
+
+export async function loadPage(pageName) {
     
     if (currentPage && currentPage.destroy) {
         currentPage.destroy();
     }
 
-    const res = await fetch(`/pages/${pageName}.html`);
+    const res = await fetch(`pages/${pageName}.html`);
     const html = await res.text();
-    const app = document.getElementById("app");
-    app.innerHTML = html;
+    console.log("Loaded HTML:", html);
+    document.getElementById("app").innerHTML = html;
  
     try {
-        currentPage = await import(`/js/${pageName}/boot.js`);
+        currentPage = await import(`/js/${pageName}/main.js`);
         if (currentPage.init) currentPage.init();
     } catch (e) {
         console.warn("No boot file for page:", pageName);
@@ -25,6 +26,8 @@ document.querySelectorAll("[data-page]").forEach(btn => {
         loadPage(page);
     });
 });
+
+window.navigate = loadPage;
 
 loadPage("terminal");
 
