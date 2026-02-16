@@ -1,4 +1,4 @@
 export default function about() {
-    window.navigate("projects");
+  window.navigate("projects");
 }
 
