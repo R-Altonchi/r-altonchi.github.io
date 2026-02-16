@@ -6,116 +6,115 @@
 }
 
 body {
-    font-family: 'Perfect DOS VGA 437', monospace; 
-    font-size: 30px;
-    margin: 0px;
-    padding: 0;
-    box-sizing: border-box;
-    background-color: black;
-    color: white;
+  font-family: 'Perfect DOS VGA 437', monospace; 
+  font-size: 30px;
+  margin: 0px;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: black;
+  color: white;
+  overflow: hidden;
+  height: 100%;
 }
-.container-wrapper {
-    display: flex;
-    justify-content: space-between;
-    padding: 15px;
-    z-index: 10;
+#app {
+  overflow-y: scroll;
+  height: calc(100vh - 80px);
+  width: 1300px;
+}
+#term {
+  height: 100%;
 }
 .container {
-    display: flex;
-    flex-direction: row;
-    gap: 15px;
-    width: 100%;
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
+  width: 100%;
 }
 
 .tinyItemHolder{
-    display: flex;
-    flex-wrap: wrap;
-    gap: 15px;
-    border-radius: 15px;
-    background-color: black;
-    padding: 20px;
-    border-color: rgb(var(--primary-rgb) / 15%);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  border-radius: 15px;
+  background-color: black;
+  padding: 20px;
+  border-color: rgb(var(--primary-rgb) / 15%);
 }
 .tinyItem{
-    margin-block-start: 5px;
-    background-color: #222;
-    padding: 5px;
-    border-style: solid;
-    border-width: 1px;
-    border-color: rgb(var(--primary-rgb) / 15%);
-    border-radius: 5px;
-    color: rgb(var(--primary-rgb) / 80%); 
+  margin-block-start: 5px;
+  background-color: #222;
+  padding: 5px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: rgb(var(--primary-rgb) / 15%);
+  border-radius: 5px;
+  color: rgb(var(--primary-rgb) / 80%); 
 }
 .tinyItem:hover{
-    scale: 1.1;
+  scale: 1.1;
 }
 .NameTopSec {
-    display: flex; 
-    align-items: center; 
-    gap: 20px;
-    margin-block-end: 15px;
-    border-radius: 5px;
-    border-color: white;
+  display: flex; 
+  align-items: center; 
+  gap: 20px;
+  margin-block-end: 15px;
+  border-radius: 5px;
+  border-color: white;
 }
 .NameTopSec img {
-    width: 60px;
-    height: auto; 
-    border-radius: 10px;
-    border-style: solid;
-    border-width: 1px;
-    border-color: #333;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  width: 100px;
+  height: auto; 
+  border-radius: 10px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #333;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
 }
 .NameTextTop{
-    display: flex;
-    flex-direction: column;
-    gap: 10px; 
+  display: flex;
+  flex-direction: column;
+  gap: 10px; 
 }
 
 .NameTopSec h2,
 .NameTopSec h3 {
-    margin: 0; 
+  margin: 0; 
 }
 .inlineM-img {
-    width: 10%;
-    height: auto;
-    display: inline-block;
-    vertical-align: middle; 
+  width: 10%;
+  height: auto;
+  display: inline-block;
+  vertical-align: middle; 
 }
 .inlineL-img {
-    width: 30%;
-    height: auto;
-    display: inline-block;
-    vertical-align: middle; 
+  width: 30%;
+  height: auto;
+  display: inline-block;
+  vertical-align: middle; 
 }
 .githubButton{
-    margin-block-start: 5px;
-    background-color: #222;
-    padding: 5px;
-    border-style: solid;
-    border-width: 1px;
-    border-color: #333;
-    border-radius: 5px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  margin-block-start: 5px;
+  background-color: #222;
+  padding: 5px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #333;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .githubButton:hover{
-    background-color: #111;
+  background-color: #111;
 }
 
 .leftCol, .middleCol, .rightCol{
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
-.leftCol {
-    flex: 3;
-}
-.middleCol {
-    flex: 4;
-}
-.rightCol {
-    flex: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  border-style: solid;
+  border-width: 1px;
+  padding: 5px;
+  border-radius: 10px;
+  flex: 1;
 }

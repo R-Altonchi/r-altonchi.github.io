@@ -5,34 +5,39 @@ let cursorVisible = true;
 let lastRenderedLine = "";
 
 setInterval(() => {
-    cursorVisible = !cursorVisible;
-    renderLine();
+  cursorVisible = !cursorVisible;
+  renderLine();
 }, 500);
 
 export function initTerm(element) {
-    termElement = element;
+  termElement = element;
 }
 
 export function print(text = "") {
-    termElement.textContent += text + "\n";
+  termElement.textContent += text + "\n";
 }
 
 export function printinline(text = "") {
-    termElement.textContent += text;
+  termElement.textContent += text;
 }
 
 export function updateLine(lineText) {
-    lastRenderedLine = lineText;
-    renderLine();
+  lastRenderedLine = lineText;
+  renderLine();
 }
 
 export function renderLine() {
-    const lines = termElement.textContent.split("\n");
-    const cursorChar = cursorVisible ? "_" : " ";
-    lines[lines.length - 1] = PROMPT + (lastRenderedLine ?? "") + cursorChar;
-    termElement.textContent = lines.join("\n");
+  const lines = termElement.textContent.split("\n");
+  const cursorChar = cursorVisible ? "_" : " ";
+  lines[lines.length - 1] = PROMPT + (lastRenderedLine ?? "") + cursorChar;
+  termElement.textContent = lines.join("\n");
 }
 
 export function clearTerm() {
-    termElement.textContent = "";
+  termElement.textContent = "";
 }
+
+export function scrollToBottom() {
+  termElement.scrollTop = termElement.scrollHeight;
+}
+
