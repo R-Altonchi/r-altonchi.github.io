@@ -16,13 +16,25 @@ body {
   overflow: hidden;
   height: 100%;
 }
+#disp{
+  display: flex;
+  justify-content: center;
+}
 #app {
+  background-color: #111;
   overflow-y: scroll;
   height: calc(100vh - 80px);
   width: 1300px;
 }
 #term {
   height: 100%;
+}
+nav {
+  display: flex;
+}
+button {
+  flex: 1;
+  height: 30px;
 }
 .container {
   display: flex;
@@ -117,4 +129,17 @@ body {
   padding: 5px;
   border-radius: 10px;
   flex: 1;
+}
+
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.card {
+  background-color: #222;
+  padding: 1rem; 
+  border-radius: 8px;
+  flex: 1 1 250px;
 }
