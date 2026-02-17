@@ -10,13 +10,13 @@ export function initShell(commandMap, initcmd) {
 
 export function handleKey(event) {
   if (event.key === "Backspace") keys.pop();
-  else if (event.key === "Shift") {}
+  else if (event.key.length === 1) { keys.push(event.key); }
   else if (event.key === "Enter") {
     const cmdStr = keys.join("");
     keys = [];
     Term.print("");
     executeCommand(cmdStr);
-  } else keys.push(event.key);
+  }
 
   Term.updateLine(keys.join(""));
   Term.scrollToBottom();
