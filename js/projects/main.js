@@ -8,7 +8,7 @@ async function fetchProjects() {
 
     const filtered = repos
       .filter(repo => repo.topics?.includes(topic))
-    .sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
+      .sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
     const container = document.getElementById("projects");
 
     filtered.forEach(repo => {
